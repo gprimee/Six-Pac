@@ -1,0 +1,22 @@
+//Barrier 1
+if(((sixPacX > 31) && (sixPacY > 671))&&((sixPacX < 249)&&(sixPacY < 769))) {
+	
+}
+if(((sixPacX > 28) && (sixPacY > 669))&&((sixPacX < 0)&&(sixPacY < 800))) {
+
+}
+//Barrier 2
+if(((sixPacX > -31) && (sixPacY > 571))&&((sixPacX < 189)&&(sixPacY < 669))) {
+	
+}
+
+//Barrier 31
+if(((sixPacX > 191) && (sixPacY > 571))&&((sixPacX < 399)&&(sixPacY < 669))) {
+	
+}
+
+//Barrier 32
+if(((sixPacX > 251) && (sixPacY > 671))&&((sixPacX < 399)&&(sixPacY < 769))) {
+
+}
+

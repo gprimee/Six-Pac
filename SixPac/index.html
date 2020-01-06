@@ -18,16 +18,14 @@
 						var sixPacX = 400;
 						var sixPacY = 529;
 						var sixPacMoveX = 0;
-						var sixPacMoveY = 0; 
+						var sixPacMoveY = 0;
+						var collision = false;
 						
-						function draw() {
-						//Default function
-							drawBackground();
-							drawSixPac();
-							moveSixPac();
-							pseudoBarriers();
-							backAround();
+						function setup() {
+						 //Default function
+							createCanvas(800, 800);
 						}
+						
 						function preload() {
 						//Default function
 							brickMap = loadImage("https://i.ibb.co/7Xj0xny/Six-Pac-Map6.png");
@@ -55,45 +53,57 @@
 								sixPacMoveX = -4;
 								sixPacMoveY = 0;
 							}
-						}
-					
-						function drawBackground() {
-							imageMode(CORNER);
-							background(brickMap);
+							if (collision == true) {
+								console.log('yos');
+							}
 						}
 						
 						function moveSixPac () {
 						//Makes Six-Pac move by using the "sixPacMove" variable
-							sixPacX = sixPacX + sixPacMoveX;
-							sixPacY = sixPacY + sixPacMoveY;
+							sixPacX += sixPacMoveX;
+							sixPacY += sixPacMoveY;
+							collision = false;
 						}
 						
 						function drawSixPac () {
 						//Updates Six-Pacs movement and sets the image mode to center
 							imageMode(CENTER);
 							image(sixPac,sixPacX,sixPacY);
+						
 						}
 						
 						function pseudoBarriers () {
 						//Barrier 1
 							if(((sixPacX > 31) && (sixPacY > 671))&&((sixPacX < 249)&&(sixPacY < 769))) {
-								sixPacX-= 10;
-								sixPacY+= 10;
+								console.log('TRUEEEE');
+								collision == true;
+								sixPacX -= 4;
+							}
+							if(((sixPacX > 28) && (sixPacY > 669))&&((sixPacX < 0)&&(sixPacY < 800))) {
+								collision == true;
+								sixPacX -= 4;
 							}
 						//Barrier 2
 							if(((sixPacX > -31) && (sixPacY > 571))&&((sixPacX < 189)&&(sixPacY < 669))) {
-								sixPacX-= 10;
-								sixPacY+= 10;
+								console.log('TRUEEEE');
+								collision == true;
+								sixPacX -= 4;
 							}
 						//Barrier 31
-							if(((sixPacX > 191) && (sixPacY > 571))&&((sixPacX < 399)&&(sixPacY < 669))) {
-								sixPacX-= 10;
-								sixPacY+= 10;
+							if(((sixPacX > 191) && (sixPacY > 571))&&((sixPacX < 398)&&(sixPacY < 668))) {
+								console.log('TRUEEEE');
+								collision == true;
+								sixPacX -= 4;
 							}
 						//Barrier 32
-							if(((sixPacX > 251) && (sixPacY > 671))&&((sixPacX < 399)&&(sixPacY < 769))) {
-								sixPacX-= 10;
-								sixPacY+= 10;
+							if(((sixPacX > 251) && (sixPacY > 640))&&((sixPacX < 398)&&(sixPacY < 830))) {
+								console.log('TRUEEEE');
+								collision == true;
+								sixPacX -= 4;
+							}
+							if (collision == true) {
+								sixPacX = 0;
+								sixPacY = 0;
 							}
 						}
 						 function backAround() {
@@ -109,13 +119,20 @@
 								sixPacY = 800;
 							}
 						 }
-
-						 function setup() {
-						 //Default function
-							createCanvas(800, 800);
+						
+						function drawBackground() {
+							imageMode(CORNER);
+							background(brickMap);
 						}
-					
-					</script>	
-					
+						
+						function draw() {
+						//Default function
+							drawBackground();
+							drawSixPac();
+							moveSixPac();
+							pseudoBarriers();
+							backAround();
+						}
+					</script>
 			</body>
 	</html>
