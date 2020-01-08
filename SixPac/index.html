@@ -15,12 +15,33 @@
 					<script>
 						var sixPac;
 						var brickMap;
-						var sixPacX = 400;
-						var sixPacY = 529;
+						var sixPacX = 550;
+						var sixPacY = 775;
 						var sixPacMoveX = 0;
 						var sixPacMoveY = 0;
-						var collision = false;
 						
+						document.addEventListener('keydown', moveSomething, true);
+						
+						function moveSomething(e) {
+							switch(e.onkeydown) {
+								case 37:
+									console.log('keypress');
+									break;
+								case 38:
+								sixPacMoveY = -4;
+								sixPacMoveX = 0;
+									break;
+								case 39:
+									console.log('keypress');
+									break;
+								case 40:
+									sixPac = loadImage("https://i.ibb.co/V9Zh7db/sixPac3d.png");
+									sixPacMoveY = 4;
+									sixPacMoveX = 0;
+									break;	
+							}	
+						}
+
 						function setup() {
 						 //Default function
 							createCanvas(800, 800);
@@ -34,14 +55,8 @@
 						function keyPressed () {
 						//Allows keys to be pressed to control various functions in the game
 							if(keyCode === UP_ARROW ) {
-								sixPac = loadImage("https://i.ibb.co/3zpmrSH/sixPac3u.png");
-								sixPacMoveY = -4;
-								sixPacMoveX = 0;
 							}
 							if(keyCode === DOWN_ARROW) {
-								sixPac = loadImage("https://i.ibb.co/V9Zh7db/sixPac3d.png");
-								sixPacMoveY = 4;
-								sixPacMoveX = 0;
 							}
 							if(keyCode === RIGHT_ARROW) {
 								sixPac = loadImage("https://i.ibb.co/ck5Vtqm/sixPac3r.png");
@@ -53,16 +68,13 @@
 								sixPacMoveX = -4;
 								sixPacMoveY = 0;
 							}
-							if (collision == true) {
-								console.log('yos');
-							}
+
 						}
 						
 						function moveSixPac () {
 						//Makes Six-Pac move by using the "sixPacMove" variable
 							sixPacX += sixPacMoveX;
 							sixPacY += sixPacMoveY;
-							collision = false;
 						}
 						
 						function drawSixPac () {
@@ -70,42 +82,8 @@
 							imageMode(CENTER);
 							image(sixPac,sixPacX,sixPacY);
 						
-						}
-						
-						function pseudoBarriers () {
-						//Barrier 1
-							if(((sixPacX > 31) && (sixPacY > 671))&&((sixPacX < 249)&&(sixPacY < 769))) {
-								console.log('TRUEEEE');
-								collision == true;
-								sixPacX -= 4;
-							}
-							if(((sixPacX > 28) && (sixPacY > 669))&&((sixPacX < 0)&&(sixPacY < 800))) {
-								collision == true;
-								sixPacX -= 4;
-							}
-						//Barrier 2
-							if(((sixPacX > -31) && (sixPacY > 571))&&((sixPacX < 189)&&(sixPacY < 669))) {
-								console.log('TRUEEEE');
-								collision == true;
-								sixPacX -= 4;
-							}
-						//Barrier 31
-							if(((sixPacX > 191) && (sixPacY > 571))&&((sixPacX < 398)&&(sixPacY < 668))) {
-								console.log('TRUEEEE');
-								collision == true;
-								sixPacX -= 4;
-							}
-						//Barrier 32
-							if(((sixPacX > 251) && (sixPacY > 640))&&((sixPacX < 398)&&(sixPacY < 830))) {
-								console.log('TRUEEEE');
-								collision == true;
-								sixPacX -= 4;
-							}
-							if (collision == true) {
-								sixPacX = 0;
-								sixPacY = 0;
-							}
-						}
+						}         
+						  
 						 function backAround() {
 						//Loops Sprites back around
 							if(sixPacX > 800) {
@@ -130,7 +108,6 @@
 							drawBackground();
 							drawSixPac();
 							moveSixPac();
-							pseudoBarriers();
 							backAround();
 						}
 					</script>
