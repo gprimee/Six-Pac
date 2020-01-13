@@ -19,7 +19,51 @@
 						var sixPacY = 775;
 						var sixPacMoveX = 0;
 						var sixPacMoveY = 0;
+
+						function setup() {
+						 //Default function
+							createCanvas(800, 800);
+							sixPac.createSprite(550, 775);
+						}
 						
+						function preload() {
+						//Default function
+							brickMap = loadImage("https://i.ibb.co/7Xj0xny/Six-Pac-Map6.png");
+							sixPac = loadImage("https://i.ibb.co/3zpmrSH/sixPac3u.png");
+						}
+						function LeftArrow() {
+							sixPac = loadImage("https://i.ibb.co/P4rsVBS/sixPac3l.png");
+							sixPac.velocity.x = -5;
+						}
+						function RightArrow() {
+							sixPac = loadImage("https://i.ibb.co/ck5Vtqm/sixPac3r.png");
+							sixPac.velocity.x = 5;
+						}
+						function DownArrow() {
+							sixPac = loadImage("https://i.ibb.co/V9Zh7db/sixPac3d.png");
+							sixPacMoveY = 4;
+							sixPacMoveX = 0;
+						}
+						function UpArrow() {
+							sixPac = loadImage("https://i.ibb.co/V9Zh7db/sixPac3u.png");
+							sixPacMoveY = -4;
+							sixPacMoveX = 0;
+						}
+						function keyPressed () {
+						//Allows keys to be pressed to control various functions in the game
+							if(keyCode === UP_ARROW ) {
+								UpArrow();
+							}
+							if(keyCode === DOWN_ARROW) {
+								DownArrow();
+							}
+							if(keyCode === RIGHT_ARROW) {
+								RightArrow();
+							}
+							if(keyCode === LEFT_ARROW) {
+								LeftArrow();
+							}
+						}
 						document.addEventListener('keydown', moveSomething, true);
 						
 						function moveSomething(e) {
@@ -28,47 +72,13 @@
 									console.log('keypress');
 									break;
 								case 38:
-								sixPacMoveY = -4;
-								sixPacMoveX = 0;
-									break;
+								break;
 								case 39:
 									console.log('keypress');
-									break;
+								break;
 								case 40:
-									sixPac = loadImage("https://i.ibb.co/V9Zh7db/sixPac3d.png");
-									sixPacMoveY = 4;
-									sixPacMoveX = 0;
-									break;	
+								break;	
 							}	
-						}
-
-						function setup() {
-						 //Default function
-							createCanvas(800, 800);
-						}
-						
-						function preload() {
-						//Default function
-							brickMap = loadImage("https://i.ibb.co/7Xj0xny/Six-Pac-Map6.png");
-							sixPac = loadImage("https://i.ibb.co/3zpmrSH/sixPac3u.png");
-						}
-						function keyPressed () {
-						//Allows keys to be pressed to control various functions in the game
-							if(keyCode === UP_ARROW ) {
-							}
-							if(keyCode === DOWN_ARROW) {
-							}
-							if(keyCode === RIGHT_ARROW) {
-								sixPac = loadImage("https://i.ibb.co/ck5Vtqm/sixPac3r.png");
-								sixPacMoveX = 4;
-								sixPacMoveY = 0;
-							}
-							if(keyCode === LEFT_ARROW) {
-								sixPac = loadImage("https://i.ibb.co/P4rsVBS/sixPac3l.png");
-								sixPacMoveX = -4;
-								sixPacMoveY = 0;
-							}
-
 						}
 						
 						function moveSixPac () {
