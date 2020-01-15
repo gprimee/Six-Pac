@@ -16,110 +16,79 @@
 					<script>
 						var sixPac;
 						var brickMap;
-						var sixPacX = 550;
-						var sixPacY = 775;
-						var sixPacMoveX = 0;
-						var sixPacMoveY = 0;
-
+						var sixPacUpImage = "https://i.ibb.co/RgQzRLq/SixPacUp.png";
+						
 						function setup() {
 						 //Default function
-							createCanvas(800, 800);
-							sixPac.createSprite(550, 775);
-						}
-						
+							createCanvas(800, 800);							
+						}						
 						function preload() {
 						//Default function
 							brickMap = loadImage("https://i.ibb.co/7Xj0xny/Six-Pac-Map6.png");
-							sixPac = loadImage("https://i.ibb.co/3zpmrSH/sixPac3u.png");
+							sixPac = createSprite(400,530,39,19);
+							sixPac.addAnimation('up',sixPacUpImage);
 						}
 						function LeftArrow() {
-							sixPac = loadImage("https://i.ibb.co/P4rsVBS/sixPac3l.png");
-							sixPac.velocity.x = -5;
+							sixPac.velocity.x = -4;
+							sixPac.velocity.y = 0;
+							sixPac.rotation = 270;
 						}
-						function RightArrow() {
-							sixPac = loadImage("https://i.ibb.co/ck5Vtqm/sixPac3r.png");
-							sixPac.velocity.x = 5;
+						function RightArrow() {					
+								sixPac.velocity.x  = 4;
+								sixPac.velocity.y  = 0;		
+								sixPac.rotation = 90;
 						}
 						function DownArrow() {
-							sixPac = loadImage("https://i.ibb.co/V9Zh7db/sixPac3d.png");
-							sixPacMoveY = 4;
-							sixPacMoveX = 0;
+								sixPac.velocity.x = 0;
+								sixPac.velocity.y = 4;		
+								sixPac.rotation = 180;
 						}
 						function UpArrow() {
-							sixPac = loadImage("https://i.ibb.co/V9Zh7db/sixPac3u.png");
-							sixPacMoveY = -4;
-							sixPacMoveX = 0;
+								sixPac.velocity.x = 0;
+								sixPac.velocity.y = -4;
+								sixPac.rotation = 0;
 						}
 						function keyPressed () {
 						//Allows keys to be pressed to control various functions in the game
 							if(keyCode === UP_ARROW ) {
-								UpArrow();
+									UpArrow();
 							}
 							if(keyCode === DOWN_ARROW) {
-								DownArrow();
+									DownArrow();
 							}
 							if(keyCode === RIGHT_ARROW) {
-								RightArrow();
+									RightArrow();
 							}
 							if(keyCode === LEFT_ARROW) {
-								LeftArrow();
+									LeftArrow();
 							}
-						}
-						document.addEventListener('keydown', moveSomething, true);
-						
-						function moveSomething(e) {
-							switch(e.onkeydown) {
-								case 37:
-									console.log('keypress');
-									break;
-								case 38:
-								break;
-								case 39:
-									console.log('keypress');
-								break;
-								case 40:
-								break;	
-							}	
-						}
-						
-						function moveSixPac () {
-						//Makes Six-Pac move by using the "sixPacMove" variable
-							sixPacX += sixPacMoveX;
-							sixPacY += sixPacMoveY;
-						}
-						
-						function drawSixPac () {
-						//Updates Six-Pacs movement and sets the image mode to center
-							imageMode(CENTER);
-							image(sixPac,sixPacX,sixPacY);
-						
-						}         
-						  
-						 function backAround() {
+						}										  						  								 																	  
+						 function backAround(x,y) {
 						//Loops Sprites back around
-							if(sixPacX > 800) {
-								sixPacX = 0;
-							} else if(sixPacX < 0) {
-								sixPacX = 800;
+							if(x > 800) {
+								sixPac.position.x = 0;
+							} else if(x < 0) {
+								sixPac.position.x = 800;
 							}
-							if(sixPacY > 800) {
-								sixPacY = 0;
-							} else if(sixPacY < 0) {
-								sixPacY = 800;
+							if(y > 800) {
+								sixPac.position.y = 0;
+							} else if(y < 0) {
+								sixPac.position.y = 800;
 							}
 						 }
-						
+						function loopAround() {
+							//Makes things neater
+							backAround(sixPac.position.x,sixPac.position.y);
+						 }		
 						function drawBackground() {
 							imageMode(CORNER);
 							background(brickMap);
-						}
-						
+						}					
 						function draw() {
 						//Default function
 							drawBackground();
-							drawSixPac();
-							moveSixPac();
-							backAround();
+							drawSprites();
+							loopAround();
 						}
 					</script>
 			</body>
