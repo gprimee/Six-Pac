@@ -5,7 +5,7 @@
 			</style>
 			
 			<title> Six-Pac </title>
-			<link rel="stylesheet" type="text/css" href="style.css">
+			<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 			<script src=".\p5\p5.js"></script>
 			<script src=".\p5\p5play.js"></script>
@@ -16,7 +16,7 @@
 					<script>
 						var sixPac;
 						var brickMap;
-						var sixPacUpImage = "https://i.ibb.co/RgQzRLq/SixPacUp.png";
+						var sixPacUpImage = "https://i.ibb.co/37L32Mr/sixPac.png";
 						
 						function setup() {
 						 //Default function
@@ -29,6 +29,7 @@
 							sixPac.addAnimation('up',sixPacUpImage);
 						}
 						function LeftArrow() {
+							if(spCanMove
 							sixPac.velocity.x = -4;
 							sixPac.velocity.y = 0;
 							sixPac.rotation = 270;
@@ -62,7 +63,7 @@
 							if(keyCode === LEFT_ARROW) {
 									LeftArrow();
 							}
-						}										  						  								 																	  
+						 }										  						  								 																	  
 						 function backAround(x,y) {
 						//Loops Sprites back around
 							if(x > 800) {
@@ -75,11 +76,14 @@
 							} else if(y < 0) {
 								sixPac.position.y = 800;
 							}
-						 }
+						}
+						function characterMovement() {
+						
+						}
 						function loopAround() {
 							//Makes things neater
 							backAround(sixPac.position.x,sixPac.position.y);
-						 }		
+						}		
 						function drawBackground() {
 							imageMode(CORNER);
 							background(brickMap);
@@ -89,7 +93,9 @@
 							drawBackground();
 							drawSprites();
 							loopAround();
+							characterMovement();
 						}
 					</script>
 			</body>
 	</html>
+
