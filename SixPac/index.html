@@ -75,7 +75,7 @@
 							if(keyCode === LEFT_ARROW) {
 									LeftArrow();
 							}
-							if(keyCode === 61) {
+							if(keyCode === 191) {
 								debuggit();
 							}
 						 }										  						  								 																	  
@@ -155,13 +155,14 @@
 							background(brickMap);
 						}
 						function debuggit() {
-							var h = prompt;
-							if(h = 1) {
+							var h = prompt("Enter 1 To Enter Debug. " + "Enter 0 to Exit Debug.");
+							if(h == 1) {
 							sixPacMap = "https://i.ibb.co/mHVWFJx/Six-Pac-Map7.png";
 							} 
-							if(h = 0) {
+							if(h == 0) {
 							sixPacMap = "https://i.ibb.co/7Xj0xny/Six-Pac-Map6.png";
 							} 
+							brickMap = loadImage(sixPacMap);
 						}
 						function draw() {
 						//Default function
