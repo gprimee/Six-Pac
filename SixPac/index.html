@@ -16,7 +16,12 @@
 					<script>
 						var sixPac;
 						var brickMap;
+						var sixPacMap = "https://i.ibb.co/7Xj0xny/Six-Pac-Map6.png";
 						var sixPacUpImage = "https://i.ibb.co/37L32Mr/sixPac.png";
+						var spCanUp = false; 
+						var spCanDown = false;
+						var spCanLeft = false;
+						var spCanRight = false;
 						
 						function setup() {
 						 //Default function
@@ -24,30 +29,37 @@
 						}						
 						function preload() {
 						//Default function
-							brickMap = loadImage("https://i.ibb.co/7Xj0xny/Six-Pac-Map6.png");
+							brickMap = loadImage(sixPacMap);
 							sixPac = createSprite(400,530,39,19);
 							sixPac.addAnimation('up',sixPacUpImage);
 						}
 						function LeftArrow() {
-							if(spCanMove
+							if(spCanLeft == true) {
 							sixPac.velocity.x = -4;
 							sixPac.velocity.y = 0;
 							sixPac.rotation = 270;
+							}
 						}
-						function RightArrow() {					
+						function RightArrow() {		
+								if(spCanRight == true) {
 								sixPac.velocity.x  = 4;
 								sixPac.velocity.y  = 0;		
 								sixPac.rotation = 90;
+								}
 						}
 						function DownArrow() {
+								if(spCanDown == true) {
 								sixPac.velocity.x = 0;
 								sixPac.velocity.y = 4;		
 								sixPac.rotation = 180;
+								}
 						}
 						function UpArrow() {
+								if(spCanUp == true) {
 								sixPac.velocity.x = 0;
 								sixPac.velocity.y = -4;
 								sixPac.rotation = 0;
+								}
 						}
 						function keyPressed () {
 						//Allows keys to be pressed to control various functions in the game
@@ -63,6 +75,9 @@
 							if(keyCode === LEFT_ARROW) {
 									LeftArrow();
 							}
+							if(keyCode === 61) {
+								debuggit();
+							}
 						 }										  						  								 																	  
 						 function backAround(x,y) {
 						//Loops Sprites back around
@@ -77,9 +92,60 @@
 								sixPac.position.y = 800;
 							}
 						}
-						function characterMovement() {
-						
-						}
+						function characterMovement(x,y) {
+							
+							//1
+							if((x > 374)&&(y > 204)&&(x < 425)&&(y < 255)) {
+								spCanUp = true;
+								spCanDown = true;
+								spCanLeft = true;
+								spCanRight = true;
+							} else {
+								spCanUp = false;
+								spCanDown = false;
+								spCanLeft = false;
+								spCanRight = false;	
+							}
+							//2
+							if((x > 374)&&(y > 284)&&(x < 425)&&(y < 335)) {
+								spCanUp = true;
+								spCanDown = true;
+								spCanLeft = true;
+								spCanRight = true;
+							} else {
+								spCanUp = false;
+								spCanDown = false;
+								spCanLeft = false;
+								spCanRight = false;	
+							}
+							//3
+							if((x > 374)&&(y > 464)&&(x < 425)&&(y < 515)) {
+								spCanUp = true;
+								spCanDown = true;
+								spCanLeft = true;
+								spCanRight = true;
+							} else {
+								spCanUp = false;
+								spCanDown = false;
+								spCanLeft = false;
+								spCanRight = false;	
+							}
+							//4
+							if((x > 374)&&(y > 544)&&(x < 425)&&(y < 595)) {
+								spCanUp = true;
+								spCanDown = true;
+								spCanLeft = true;
+								spCanRight = true;
+							} else {
+								spCanUp = false;
+								spCanDown = false;
+								spCanLeft = false;
+								spCanRight = false;	
+							}
+							
+							
+							
+						} 
 						function loopAround() {
 							//Makes things neater
 							backAround(sixPac.position.x,sixPac.position.y);
@@ -87,13 +153,23 @@
 						function drawBackground() {
 							imageMode(CORNER);
 							background(brickMap);
-						}					
+						}
+						function debuggit() {
+							var h = prompt;
+							if(h = 1) {
+							sixPacMap = "https://i.ibb.co/mHVWFJx/Six-Pac-Map7.png";
+							} 
+							if(h = 0) {
+							sixPacMap = "https://i.ibb.co/7Xj0xny/Six-Pac-Map6.png";
+							} 
+						}
 						function draw() {
 						//Default function
 							drawBackground();
 							drawSprites();
 							loopAround();
-							characterMovement();
+							characterMovement(sixPac.position.x,sixPac.position.y);
+							
 						}
 					</script>
 			</body>
