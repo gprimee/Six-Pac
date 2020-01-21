@@ -22,6 +22,8 @@
 						var spCanDown = false;
 						var spCanLeft = false;
 						var spCanRight = false;
+						var trueElsewhere = false;
+						var spOnMapTrack = true;
 						
 						function setup() {
 						 //Default function
@@ -29,8 +31,9 @@
 						}						
 						function preload() {
 						//Default function
+						// (400,530) (400,230)
 							brickMap = loadImage(sixPacMap);
-							sixPac = createSprite(400,530,39,19);
+							sixPac = createSprite(400,230,39,19);
 							sixPac.addAnimation('up',sixPacUpImage);
 						}
 						function LeftArrow() {
@@ -59,7 +62,7 @@
 								sixPac.velocity.x = 0;
 								sixPac.velocity.y = -4;
 								sixPac.rotation = 0;
-								}
+								} 
 						}
 						function keyPressed () {
 						//Allows keys to be pressed to control various functions in the game
@@ -92,270 +95,198 @@
 								sixPac.position.y = 800;
 							}
 						}
-						function characterMovement(x,y) {
-							//1
-							if((x > 374)&&(y > 204) &&(x < 425)&&(y < 255)) {
+						function characterMovement(x,y) {																		
+							if(spOnMapTrack == true) {
+								console.log("HERE COMES SIX PAC");
+							} else if(spOnMapTrack == false){
+								console.log("SIX PAC IS DEAD");
+							}
+							
+						
+							if((x > 373)&&(y > 543) &&(x < 426)&&(y < 596)||(x > 373)&&(y > 203) &&(x < 426)&&(y < 256)||(x > 163)&&(y > 203) &&(x < 216)&&(y < 256)||(x > 163)&&(y > 543) &&(x < 216)&&(y < 596)||(x > 583)&&(y > 203)&&(x < 636)&&(y < 256)||(x > 583)&&(y > 543)&&(x < 636)&&(y < 596)||(x > 223)&&(y > 103) &&(x < 276)&&(y < 156)||(x > 223)&&(y > 743) &&(x < 276)&&(y < 796)||(x > 743)&&(y > 103)&&(x < 796)&&(y < 156)||(x > 693)&&(y > 433)&&(x < 746)&&(y < 486)||(x > 743)&&(y > 743) && (x < 796)&&(y < 796)||(x > 503)&&(y > 463) && (x < 556)&&(y < 516)||(x > 3)&&(y > 103) &&(x < 56)&&(y < 156)||(x > 53)&&(y > 433) &&(x < 106)&&(y < 486)||(x > 3)&&(y > 743) &&(x < 56)&&(y < 796)||(x > 523)&&(y > 103)&&(x < 576)&&(y < 156)||(x > 523)&&(y > 743) && (x < 576)&&(y < 796)||(x > 243)&&(y > 463) && (x < 296)&&(y < 516)||(x > 3)&&(y > 3) &&(x < 56)&&(y < 56)||(x > 53)&&(y > 313) &&(x < 106)&&(y < 366)||(x > 3)&&(y > 643) &&(x < 56)&&(y < 696)||(x > 523)&&(y > 3)&&(x < 576)&&(y < 56)||(x > 523)&&(y > 643) && (x < 576)&&(y < 696)||(x > 243)&&(y > 283) && (x < 296)&&(y < 336)||(x > 223)&&(y > 3) &&(x < 276)&&(y < 56)||(x > 223)&&(y > 643) &&(x < 276)&&(y < 696)||(x > 743)&&(y > 3)&&(x < 796)&&(y < 56)||(x > 693)&&(y > 313)&&(x < 746)&&(y < 366)||(x > 743)&&(y > 643) && (x < 796)&&(y < 696)||(x > 503)&&(y > 283) && (x < 556)&&(y < 336)||(x > 163)&&(y > 313) &&(x < 216)&&(y < 366)||(x > 243)&&(y > 373) &&(x < 296)&&(y < 426)||(x > 163)&&(y > 433) &&(x < 216)&&(y < 486)||(x > 583)&&(y > 373)&&(x < 636)&&(y < 426)||(x > 163)&&(y > 373) &&(x < 216)&&(y < 426)||(x > 583)&&(y > 313)&&(x < 636)&&(y < 366)||(x > 503)&&(y > 373)&&(x < 556)&&(y < 426)||(x > 583)&&(y > 433)&&(x < 636)&&(y < 486)||(x > 373)&&(y > 283) &&(x < 426)&&(y < 336)||(x > 163)&&(y > 643) &&(x < 216)&&(y < 696)||(x > 583)&&(y > 643) && (x < 636)&&(y < 696)||(x > 373)&&(y > 463) &&(x < 426)&&(y < 516)||(x > 163)&&(y > 103) &&(x < 216)&&(y < 156)||(x > 583)&&(y > 103)&&(x < 636)&&(y < 156)||( x > 4)&&(y > 56)&&(x < 55)&&(y < 103)||( x > 224)&&(y > 56)&&(x < 275)&&(y < 103)||(x > 164)&&(y > 156)&&(x < 215)&&(y < 203)||(x > 374)&&(y > 0)&&(x < 425)&&(y < 203)||(x > 584)&&(y > 156)&&(x < 635)&&(y < 203)||(x > 524)&&(y > 56)&&(x < 575)&&(y < 103)||(x > 744)&&(y > 56)&&(x < 795)&&(y < 103)||(x > 164)&&(y > 256)&&(x < 215)&&(y < 313)||(x > 374)&&(y > 256)&&(x < 425)&&(y < 283)||(x > 584)&&(y > 256)&&(x < 635)&&(y < 313)||(x > 54)&&(y > 366)&&(x < 105)&&(y < 433)||(x > 164)&&(y > 366)&&(x < 215)&&(y < 373)||(x > 244)&&(y > 336)&&(x < 295)&&(y < 373)||(x > 504)&&(y > 336)&&(x < 555)&&(y < 373)||(x > 584)&&(y > 366)&&(x < 635)&&(y < 373)||(x > 694)&&(y > 366)&&(x < 745)&&(y < 433)||(x > 164)&&(y > 426)&&(x < 215)&&(y < 433)||(x > 244)&&(y > 426)&&(x < 295)&&(y < 463)||(x > 504)&&(y > 426)&&(x < 555)&&(y < 463)||(x > 584)&&(y > 426)&&(x < 635)&&(y < 433)||(x > 164)&&(y > 486)&&(x < 215)&&(y < 543)||(x > 374 )&&(y > 516)&&(x < 425)&&(y < 543)||(x > 584)&&(y > 486)&&(x < 635)&&(y < 543)||(x > 164)&&(y > 596)&&(x < 215)&&(y < 643)||(x > 4)&&(y > 696)&&(x < 55)&&(y < 743)||(x > 224)&&(y > 696)&&(x < 275)&&(y < 743)||(x > 374)&&(y > 596)&&(x < 425)&&(y < 799)||(x > 524)&&(y > 696)&&(x < 575)&&(y < 743)||(x > 584)&&(y > 596)&&(x < 635)&&(y < 643)||(x > 744)&&(y > 696)&&(x < 795)&&(y < 743)||(x > 56)&&(y > 4)&&(x < 223)&&(y < 55)||(x > 576)&&(y > 4)&&(x < 743)&&(y < 55)||(x > 56)&&(y > 104)&&(x < 163)&&(y < 155)||(x > 216)&&(y > 104)&&(x < 223)&&(y < 155)||(x > 576)&&(y > 104)&&(x < 583)&&(y < 155)||(x > 636)&&(y > 104)&&(x < 743)&&(y < 155)||(x > 0)&&(y > 204)&&(x < 163)&&(y < 255)||(x > 216)&&(y > 204)&&(x < 373)&&(y < 255)||(x > 426)&&(y > 204)&&(x < 583)&&(y < 255)||(x > 636)&&(y > 204)&&(x < 799)&&(y < 255)||(x > 106)&&(y > 314)&&(x < 163)&&(y < 365)||(x > 296)&&(y > 284)&&(x < 373)&&(y < 355)||(x > 426)&&(y > 284)&&(x < 503)&&(y < 335)||(x > 636)&&(y > 314)&&(x < 693)&&(y < 365)||(x > 216)&&(y > 374)&&(x < 243)&&(y < 425)||(x > 556)&&(y > 374)&&(x < 583)&&(y < 425)||(x > 106)&&(y > 434)&&(x < 163)&&(y < 485)||(x > 296)&&(y > 464)&&(x < 373)&&(y < 515)||(x > 426)&&(y > 464)&&(x < 503)&&(y < 515)||(x > 636)&&(y > 434)&&(x < 693)&&(y < 485)||(x > 0)&&(y > 544)&&(x < 163)&&(y < 595)||(x > 216)&&(y > 544)&&(x < 373)&&(y < 595)||(x > 426)&&(y > 544)&&(x < 583)&&(y < 595)||(x > 636)&&(y > 544)&&(x < 799)&&(y < 595)||(x > 56)&&(y > 644)&&(x < 163)&&(y < 695)||(x > 216)&&(y > 644)&&(x < 223)&&(y < 695)||(x > 56)&&(y > 744)&&(x < 223)&&(y < 795)||(x > 576)&&(y > 644)&&(x < 583)&&(y < 695)||(x > 636)&&(y > 644)&&(x < 743)&&(y < 695)||(x > 576)&&(y > 744)&&(x < 743)&&(y < 795)) {
+								spOnMapTrack = true;								
+							} else {
+								spOnMapTrack = false;
+							}
+												
+							//1||4||10||17||28||35 UDLR YES
+							if((x > 373)&&(y > 543) &&(x < 426)&&(y < 596)||(x > 373)&&(y > 203) &&(x < 426)&&(y < 256)||(x > 163)&&(y > 203) &&(x < 216)&&(y < 256)||(x > 163)&&(y > 543) &&(x < 216)&&(y < 596)||(x > 583)&&(y > 203)&&(x < 636)&&(y < 256)||(x > 583)&&(y > 543)&&(x < 636)&&(y < 596)) {
 								spCanUp = true;
 								spCanDown = true;
 								spCanLeft = true;
 								spCanRight = true;
+								trueElsewhere = true;															
 							} else {
+								if(trueElsewhere == false) {
 								spCanUp = false;
 								spCanDown = false;
 								spCanLeft = false;
 								spCanRight = false;	
-							}
-							//2
-							if((x > 374)&&(y > 284) &&(x < 425)&&(y < 335)) {
-								spCanUp = true;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//3
-							if((x > 374)&&(y > 464) &&(x < 425)&&(y < 515)) {
-								spCanUp = true;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//4
-							if((x > 374)&&(y > 544) &&(x < 425)&&(y < 595)) {
-								spCanUp = true;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//23
-							if((x > 524)&&(y > 4)&&(x < 575)&&(y < 55)) {
-								spCanUp = true;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//24
-							if((x > 744)&&(y > 4)&&(x < 795)&&(y < 55)) {
-								spCanUp = true;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//25
-							if((x > 524)&&(y > 104)&&(x < 575)&&(y < 155)) {
-								spCanUp = true;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//26
-							if((x > 584)&&(y > 104)&&(x < 635)&&(y < 155)) {
-								spCanUp = true;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//27
-							if((x > 744)&&(y > 104)&&(x < 795)&&(y < 155)) {
-								spCanUp = true;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//28
-							if((x > 584)&&(y > 204)&&(x < 635)&&(y < 255)) {
-								spCanUp = true;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//29
-							if((x > 584)&&(y > 314)&&(x < 635)&&(y < 365)) {
-								spCanUp = true;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//30
-							if((x > 694)&&(y > 314)&&(x < 745)&&(y < 365)) {
-								spCanUp = true;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//31
-							if((x > 504)&&(y > 374)&&(x < 555)&&(y < 425)) {
-								spCanUp = true;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//32
-							if((x > 584)&&(y > 374)&&(x < 635)&&(y < 425)) {
-								spCanUp = true;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//33
-							if((x > 584)&&(y > 434)&&(x < 635)&&(y < 485)) {
-								spCanUp = true;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//34
-							if((x > 694)&&(y > 434)&&(x < 745)&&(y < 485)) {
-								spCanUp = true;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//35
-							if((x > 584)&&(y > 544)&&(x < 635)&&(y < 595)) {
-								spCanUp = true;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//36
-							if ((x > 524)&&(y > 644) && (x < 575)&&(y < 695)) {
-								spCanUp = true;
-								spCanDown = false;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//37
-							if ((x > 584)&&(y > 644) && (x < 635)&&(y < 695)) {
-								spCanUp = true;
-								spCanDown = false;
-								spCanLeft = true;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//38
-							if ((x > 744)&&(y > 644) && (x < 795)&&(y < 695)) {
-								spCanUp = false;
-								spCanDown = true;
-								spCanLeft = true;
-								spCanRight = false;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//39
-							if ((x > 524)&&(y > 744) && (x < 575)&&(y < 795)) {
-								spCanUp = true;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = true;
-							} else {
-								spCanUp = false;
-								spCanDown = false;
-								spCanLeft = false;
-								spCanRight = false;	
-							}
-							//40
-							if ((x > 744)&&(y > 744) && (x < 795)&&(y < 795)) {
+								}
+								trueElsewhere = false;						
+							}			
+							//9||22||27||34||40||44 UL YES
+							if((x > 223)&&(y > 103) &&(x < 276)&&(y < 156)||(x > 223)&&(y > 743) &&(x < 276)&&(y < 796)||(x > 743)&&(y > 103)&&(x < 796)&&(y < 156)||(x > 693)&&(y > 433)&&(x < 746)&&(y < 486)||(x > 743)&&(y > 743) && (x < 796)&&(y < 796)||(x > 503)&&(y > 463) && (x < 556)&&(y < 516)) {	
 								spCanUp = true;
 								spCanDown = false;
 								spCanLeft = true;
 								spCanRight = false;
+								trueElsewhere = true;
 							} else {
+								if(trueElsewhere == false) {
 								spCanUp = false;
 								spCanDown = false;
 								spCanLeft = false;
 								spCanRight = false;	
+								trueElsewhere = false;
+								}
+							}
+							//7||15||21||25||39||43 UR YES
+							if((x > 3)&&(y > 103) &&(x < 56)&&(y < 156)||(x > 53)&&(y > 433) &&(x < 106)&&(y < 486)||(x > 3)&&(y > 743) &&(x < 56)&&(y < 796)||(x > 523)&&(y > 103)&&(x < 576)&&(y < 156)||(x > 523)&&(y > 743) && (x < 576)&&(y < 796)||(x > 243)&&(y > 463) && (x < 296)&&(y < 516)) {
+								spCanUp = true;
+								spCanDown = false;
+								spCanLeft = false;
+								spCanRight = true;
+								trueElsewhere = true;
+							} else {
+								if(trueElsewhere == false) {
+								spCanUp = false;
+								spCanDown = false;
+								spCanLeft = false;
+								spCanRight = false;	
+								trueElsewhere = false;
+								}
+							}							
+							//5||11||18||23||36||41 DR YES
+							if((x > 3)&&(y > 3) &&(x < 56)&&(y < 56)||(x > 53)&&(y > 313) &&(x < 106)&&(y < 366)||(x > 3)&&(y > 643) &&(x < 56)&&(y < 696)||(x > 523)&&(y > 3)&&(x < 576)&&(y < 56)||(x > 523)&&(y > 643) && (x < 576)&&(y < 696)||(x > 243)&&(y > 283) && (x < 296)&&(y < 336)) {
+								spCanUp = false;
+								spCanDown = true;
+								spCanLeft = false;
+								spCanRight = true;
+								trueElsewhere = true;
+							} else {
+								if(trueElsewhere == false) {
+								spCanUp = false;
+								spCanDown = false;
+								spCanLeft = false;
+								spCanRight = false;	
+								trueElsewhere = false;
+								}
+							}
+							//6||20||24||30||38||42 DL YES
+							if((x > 223)&&(y > 3) &&(x < 276)&&(y < 56)||(x > 223)&&(y > 643) &&(x < 276)&&(y < 696)||(x > 743)&&(y > 3)&&(x < 796)&&(y < 56)||(x > 693)&&(y > 313)&&(x < 746)&&(y < 366)||(x > 743)&&(y > 643) && (x < 796)&&(y < 696)||(x > 503)&&(y > 283) && (x < 556)&&(y < 336)) {							
+								spCanUp = false;
+								spCanDown = true;
+								spCanLeft = true;
+								spCanRight = false;
+								trueElsewhere = true;
+							} else {
+								if(trueElsewhere == false) {
+								spCanUp = false;
+								spCanDown = false;
+								spCanLeft = false;
+								spCanRight = false;	
+								trueElsewhere = false;
+								}
+							}
+							//12||14||16||32 UDL YES
+							if((x > 163)&&(y > 313) &&(x < 216)&&(y < 366)||(x > 243)&&(y > 373) &&(x < 296)&&(y < 426)||(x > 163)&&(y > 433) &&(x < 216)&&(y < 486)||(x > 583)&&(y > 373)&&(x < 636)&&(y < 426)) {
+								spCanUp = true;
+								spCanDown = true;
+								spCanLeft = true;
+								spCanRight = false;
+								trueElsewhere = true;
+							} else {
+								if(trueElsewhere == false) {
+								spCanUp = false;
+								spCanDown = false;
+								spCanLeft = false;
+								spCanRight = false;	
+								trueElsewhere = false;
+								}
+							}
+							//13||29||31||33 UDR YES
+							if((x > 163)&&(y > 373) &&(x < 216)&&(y < 426)||(x > 583)&&(y > 313)&&(x < 636)&&(y < 366)||(x > 503)&&(y > 373)&&(x < 556)&&(y < 426)||(x > 583)&&(y > 433)&&(x < 636)&&(y < 486)) {
+								spCanUp = true;
+								spCanDown = true;
+								spCanLeft = false;
+								spCanRight = true;
+								trueElsewhere = true;	
+							} else {
+								if(trueElsewhere == false) {
+								spCanUp = false;
+								spCanDown = false;
+								spCanLeft = false;
+								spCanRight = false;	
+								trueElsewhere = false;
+								}
+							}
+							
+							//2||19||37 ULR YES
+							if((x > 373)&&(y > 283) &&(x < 426)&&(y < 336)||(x > 163)&&(y > 643) &&(x < 216)&&(y < 696)||(x > 583)&&(y > 643) && (x < 636)&&(y < 696)) {
+							spCanUp = true;
+								spCanDown = false;
+								spCanLeft = true;
+								spCanRight = true;
+								trueElsewhere = true;
+							} else {
+								if(trueElsewhere == false) {
+								spCanUp = false;
+								spCanDown = false;
+								spCanLeft = false;
+								spCanRight = false;	
+								trueElsewhere = false;
+								}
+							}
+							
+							//3||8||26 DLR YES
+							if((x > 373)&&(y > 463) &&(x < 426)&&(y < 516)||(x > 163)&&(y > 103) &&(x < 216)&&(y < 156)||(x > 583)&&(y > 103)&&(x < 636)&&(y < 156)) {
+								spCanUp = false;
+								spCanDown = true;
+								spCanLeft = true;
+								spCanRight = true;
+								trueElsewhere = true;	
+							} else {
+								if(trueElsewhere == false) {
+								spCanUp = false;
+								spCanDown = false;
+								spCanLeft = false;
+								spCanRight = false;	
+								trueElsewhere = false;
+								}
+							}
+									
+							//All non-corner vertical lines UD																													
+							if(( x > 4)&&(y > 56)&&(x < 55)&&(y < 103)||( x > 224)&&(y > 56)&&(x < 275)&&(y < 103)||(x > 164)&&(y > 156)&&(x < 215)&&(y < 203)||(x > 374)&&(y > 0)&&(x < 425)&&(y < 203)||(x > 584)&&(y > 156)&&(x < 635)&&(y < 203)||(x > 524)&&(y > 56)&&(x < 575)&&(y < 103)||(x > 744)&&(y > 56)&&(x < 795)&&(y < 103)||(x > 164)&&(y > 256)&&(x < 215)&&(y < 313)||(x > 374)&&(y > 256)&&(x < 425)&&(y < 283)||(x > 584)&&(y > 256)&&(x < 635)&&(y < 313)||(x > 54)&&(y > 366)&&(x < 105)&&(y < 433)||(x > 164)&&(y > 366)&&(x < 215)&&(y < 373)||(x > 244)&&(y > 336)&&(x < 295)&&(y < 373)||(x > 504)&&(y > 336)&&(x < 555)&&(y < 373)||(x > 584)&&(y > 366)&&(x < 635)&&(y < 373)||(x > 694)&&(y > 366)&&(x < 745)&&(y < 433)||(x > 164)&&(y > 426)&&(x < 215)&&(y < 433)||(x > 244)&&(y > 426)&&(x < 295)&&(y < 463)||(x > 504)&&(y > 426)&&(x < 555)&&(y < 463)||(x > 584)&&(y > 426)&&(x < 635)&&(y < 433)||(x > 164)&&(y > 486)&&(x < 215)&&(y < 543)||(x > 374 )&&(y > 516)&&(x < 425)&&(y < 543)||(x > 584)&&(y > 486)&&(x < 635)&&(y < 543)||(x > 164)&&(y > 596)&&(x < 215)&&(y < 643)||(x > 4)&&(y > 696)&&(x < 55)&&(y < 743)||(x > 224)&&(y > 696)&&(x < 275)&&(y < 743)||(x > 374)&&(y > 596)&&(x < 425)&&(y < 799)||(x > 524)&&(y > 696)&&(x < 575)&&(y < 743)||(x > 584)&&(y > 596)&&(x < 635)&&(y < 643)||(x > 744)&&(y > 696)&&(x < 795)&&(y < 743)) {
+								spCanUp = true;
+								spCanDown = true;
+								spCanLeft = false;
+								spCanRight = false;
+								trueElsewhere = true;
+							} else {
+								if(trueElsewhere == false) {
+								spCanUp = false;
+								spCanDown = false;
+								spCanLeft = false;
+								spCanRight = false;	
+								trueElsewhere = false;
+								}										
+							}	
+							//All non-corner horizontal lines LR
+							if((x > 56)&&(y > 4)&&(x < 223)&&(y < 55)||(x > 576)&&(y > 4)&&(x < 743)&&(y < 55)||(x > 56)&&(y > 104)&&(x < 163)&&(y < 155)||(x > 216)&&(y > 104)&&(x < 223)&&(y < 155)||(x > 576)&&(y > 104)&&(x < 583)&&(y < 155)||(x > 636)&&(y > 104)&&(x < 743)&&(y < 155)||(x > 0)&&(y > 204)&&(x < 163)&&(y < 255)||(x > 216)&&(y > 204)&&(x < 373)&&(y < 255)||(x > 426)&&(y > 204)&&(x < 583)&&(y < 255)||(x > 636)&&(y > 204)&&(x < 799)&&(y < 255)||(x > 106)&&(y > 314)&&(x < 163)&&(y < 365)||(x > 296)&&(y > 284)&&(x < 373)&&(y < 355)||(x > 426)&&(y > 284)&&(x < 503)&&(y < 335)||(x > 636)&&(y > 314)&&(x < 693)&&(y < 365)||(x > 216)&&(y > 374)&&(x < 243)&&(y < 425)||(x > 556)&&(y > 374)&&(x < 583)&&(y < 425)||(x > 106)&&(y > 434)&&(x < 163)&&(y < 485)||(x > 296)&&(y > 464)&&(x < 373)&&(y < 515)||(x > 426)&&(y > 464)&&(x < 503)&&(y < 515)||(x > 636)&&(y > 434)&&(x < 693)&&(y < 485)||(x > 0)&&(y > 544)&&(x < 163)&&(y < 595)||(x > 216)&&(y > 544)&&(x < 373)&&(y < 595)||(x > 426)&&(y > 544)&&(x < 583)&&(y < 595)||(x > 636)&&(y > 544)&&(x < 799)&&(y < 595)||(x > 56)&&(y > 644)&&(x < 163)&&(y < 695)||(x > 216)&&(y > 644)&&(x < 223)&&(y < 695)||(x > 56)&&(y > 744)&&(x < 223)&&(y < 795)||(x > 576)&&(y > 644)&&(x < 583)&&(y < 695)||(x > 636)&&(y > 644)&&(x < 743)&&(y < 695)||(x > 576)&&(y > 744)&&(x < 743)&&(y < 795)) {
+								spCanUp = false;
+								spCanDown = false;
+								spCanLeft = true;
+								spCanRight = true;
+								trueElsewhere = true;	
+							} else {
+								if(trueElsewhere == false) {
+								spCanUp = false;
+								spCanDown = false;
+								spCanLeft = false;
+								spCanRight = false;	
+								trueElsewhere = false;
+								}
 							}
 						} 
 						function loopAround() {
@@ -369,7 +300,7 @@
 						function debuggit() {
 							var h = prompt("Enter 1 To Enter Debug Mode. " + "Enter 0 to Exit Debug Mode.");
 							if(h == 1) {
-							sixPacMap = "https://i.ibb.co/mHVWFJx/Six-Pac-Map7.png";
+							sixPacMap = "https://i.ibb.co/Zfq1tDw/Six-Pac-Map7.png";
 							} 
 							if(h == 0) {
 							sixPacMap = "https://i.ibb.co/7Xj0xny/Six-Pac-Map6.png";
@@ -387,4 +318,3 @@
 					</script>
 			</body>
 	</html>
-
