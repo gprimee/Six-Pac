@@ -1,0 +1,34 @@
+Sprites - 
+Map(DONE)
+Six Pac(DONE)
+Large People "DONE"
+Protein Bars (DONE)
+Protein Powder
+Weights
+
+Functions - 
+Movement barriers/Physics
+Protein bars 
+Becker Mode/Other cheats
+Moving large people
+Restarting game
+Pausing game
+Victory/Defeat
+Keeping track of score and lives
+
+Misc - 
+Sound Effects?
+Music?
+
+What to work on now: 
+Protein bar spawning
+
+Advice - Use a Pac-Man map for a reference
+on how frequently the bars will spawn. Even
+if Six Pac's movement doesn't work properly, Six Pac 
+should still be able to interact with the protein bars and make 
+them disappear. 
+
+It would also be useful to create a score board of some sort and add points
+to it whenever a protein bar is consumed. 
+
