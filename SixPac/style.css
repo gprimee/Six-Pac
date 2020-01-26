@@ -1,9 +1,79 @@
-canvas {
-	border: 1px solid black;
-	display: inline-block;
-	vertical-align: top;
+html {
+  box-sizing: border-box;
 }
-
-#mainHeader {
-	font-size:36px;
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  background-color: white;
+}
+body > div {
+  margin: 120px auto;
+  text-align: center;
+}
+.tile {
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  vertical-align: top;
+}
+.wall {
+	background-image: url('../images/brickWall.png');
+}
+.bar {
+	background-image: url('../images/proteinBar.png');
+}
+.empty {
+	background-image: url('../images/emptySpace.png');
+}
+.powder {
+	
+}
+.bigAUP {
+	
+}
+.bigADOWN {
+	
+}
+.bigALEFT {
+	
+}
+.bigARIGHT {
+	
+}
+.bigBUP {
+	
+}
+.bigBDOWN {
+	
+}
+.bigBLEFT {
+	
+}
+.bigBRIGHT {
+	
+}
+.bigCUP {
+	
+}
+.bigCDOWN {
+	
+}
+.bigCLEFT {
+	
+}
+.bigCRIGHT {
+	
+}
+.sixPacUp {
+	background-image: url('../images/sixPacUp.png');
+}
+.sixPacDown {
+	background-image: url('../images/sixPacDown.png');
+}
+.sixPacLeft {
+	background-image: url('../images/sixPacLeft.png');
+}
+.sixPacRight {
+	background-image: url('../images/sixPacRight.png');
 }
